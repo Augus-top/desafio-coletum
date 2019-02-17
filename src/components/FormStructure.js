@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Row, Col, Form, InputGroup } from 'react-bootstrap';
-import DateButton from './DateButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import StarRating from './StarRating';
 
 const StyledLabel = styled(Form.Label)`
@@ -20,13 +20,7 @@ class FormStructure extends Component {
             <InputGroup>
               <Form.Control type="date" placeholder="DD/MM/AAAA" />
               <InputGroup.Append>
-                <InputGroup.Text id="inputGroupPrepend">
-                  <DateButton 
-                    show={this.props.calendarFlag} 
-                    handleButton={this.props.handleCalendarClick} 
-                    handleChange={this.props.handleCalendarChange}
-                  />
-                </InputGroup.Text>
+                <InputGroup.Text id="inputGroupPrepend"><FontAwesomeIcon icon="calendar-alt"></FontAwesomeIcon></InputGroup.Text>
               </InputGroup.Append>
             </InputGroup>
         );

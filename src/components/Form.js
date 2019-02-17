@@ -14,43 +14,29 @@ const mapStateToProps = state => {
 class Form extends Component {
 
   componentDidMount = () => {
-    this.updateStructure();
+    // this.updateStructure();
     this.props.dispatch({type: 'SET_UPDATE_FLAG', updateFlag: true});
   };
 
   componentDidUpdate = () => {
     if (this.props.formStructure.updateFlag) this.updateStructure();
   };
-
-  handleCalendarClick = (e) => {
-    e.preventDefault();
-    this.props.dispatch({type: 'SET_CALENDAR_FLAG', calendarFlag: true});
-  };
-
-  handleCalendarChange = (date) => {
-    console.log(date);
-    this.props.dispatch({type: 'SET_CALENDAR_FLAG', calendarFlag: false});
-  };
-
+  
   updateStructure = async () => {
-    this.props.dispatch({type: 'SET_UPDATE_FLAG', updateFlag: false}); 
     const form = this.props.availableForms.currentForm;
     const response = await getFormStructure(form.name, form.id);
     if (response === 'error') return;
     this.props.dispatch({type: 'UPDATE', structure: response.form_structure}); 
+    this.props.dispatch({type: 'SET_UPDATE_FLAG', updateFlag: false});
   }
 
   render() {
+    if (this.props.formStructure.updateFlag) return null;
     return(
       <FormLayout>
         <FormTitle title={this.props.availableForms.currentForm.name}/>
         <hr/>
-        <FormStructure 
-          structure={this.props.formStructure.structure}
-          calendarFlag={this.props.formStructure.calendarFlag}
-          handleCalendarClick={this.handleCalendarClick}
-          handleCalendarChange={this.handleCalendarChange}
-        />
+        <FormStructure structure={this.props.formStructure.structure}/>
         <hr/>
       </FormLayout>
     );

@@ -6,7 +6,6 @@ const initialState = {
     helpBlock: null
   }],
   updateFlag: true,
-  calendarFlag: false,
   starRating: 0
 }
 
@@ -21,11 +20,6 @@ const structure = (state = initialState, action) => {
       return {
         ...state,
         updateFlag: action.updateFlag
-      }
-    case 'SET_CALENDAR_FLAG':
-      return {
-        ...state,
-        calendarFlag: action.calendarFlag
       }
     case 'SET_STAR_RATING':
       return {
