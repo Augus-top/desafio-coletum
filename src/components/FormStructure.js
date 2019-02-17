@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Row, Col, Form, InputGroup } from 'react-bootstrap';
 import DateButton from './DateButton';
+import StarRating from './StarRating';
 
 const StyledLabel = styled(Form.Label)`
   word-wrap: break-word
@@ -47,6 +48,15 @@ class FormStructure extends React.Component {
               <InputGroup.Text id="inputGroupPrepend"><DateButton show={this.state.open} handleButton={this.handleClick} handleChange={this.handleChange}/></InputGroup.Text>
             </InputGroup.Append>
           </InputGroup>
+        </Col>
+      </Form.Group>
+      <Form.Group as={Row} controlId="formPlaintextStar">
+        <StyledLabel className='text-right' column xs={labelDefaultSize}>
+          Força
+        </StyledLabel>
+        <Col xs={fieldDefaultSize}>
+          {/* <Form.Control type="password" placeholder="Password" /> */}
+          <StarRating/>
         </Col>
       </Form.Group>
     </Form>

@@ -5,9 +5,11 @@ import FormTitle from './FormTitle';
 import FormLayout from './FormLayout';
 import FormStructure from './FormStructure';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faCalendar);
+library.add(faCalendarAlt);
+library.add(faStar);
 
 class App extends Component {
   render() {
