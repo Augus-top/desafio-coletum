@@ -51,7 +51,7 @@ class FormStructure extends Component {
     }
   };
 
-  checkHelpBlock = (field) => {
+  createHelpBlock = (field) => {
     if (field.helpBlock === null) {
       return
     }
@@ -73,7 +73,7 @@ class FormStructure extends Component {
               </StyledLabel>
               <Col xs={fieldDefaultSize}>
                 {this.createInputField(field)}
-                {this.checkHelpBlock(field)}
+                {this.createHelpBlock(field)}
               </Col>
             </Form.Group>
           );

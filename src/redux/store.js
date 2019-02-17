@@ -5,7 +5,7 @@ import availableForms from './reducers/availableForms';
 
 const reducer = combineReducers({
   form: reduxFormReducer,
-  structure,
+  formStructure: structure,
   availableForms
 });
 

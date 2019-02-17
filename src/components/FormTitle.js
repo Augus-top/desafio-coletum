@@ -6,10 +6,12 @@ const StyledTitle = styled.h1`
   color: #a4a5b2
 `;
 
-const FormTitle = () => (
-  <StyledTitle>
-    Cadastro de Pokémon
-  </StyledTitle>
-)
+const FormTitle = (props) => {
+  return (
+    <StyledTitle>
+      {props.title}
+    </StyledTitle>
+  );
+}
 
 export default FormTitle;

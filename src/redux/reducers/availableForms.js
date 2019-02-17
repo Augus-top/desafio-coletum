@@ -7,22 +7,23 @@ const initialState = {
     answerTracking: true,
     publicAnswers: false
   }],
-  current_form: {
+  currentForm: {
     id: 6950,
-    name: 'Cadastro de Pokémon'
+    name: 'Cadastro de Pokémon',
   }
 }
 
 const availableForms = (state = initialState, action) => {
-  // console.log(state);
   switch (action.type) {
     case 'SET_FORMS':
       return {
-        forms: action.forms
+        ...state,
+        forms: action.forms,
       };
     case 'SET_CURRENT_FORM':
       return {
-        current_form: action.selected_form
+        ...state,
+        currentForm: action.currentForm,
       }
     default: {
       return state;
