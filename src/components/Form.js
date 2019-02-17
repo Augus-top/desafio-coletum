@@ -7,7 +7,8 @@ import { getFormStructure } from '../api/apiClient';
 
 const mapStateToProps = state => {
   return {
-    structure: state.structure
+    structure: state.structure.structure,
+    current_form: state.availableForms.current_form
   }
 };
 
@@ -18,7 +19,8 @@ class Form extends Component {
   };
 
   prepareForm = async () => {
-    const response = await getFormStructure('', 6950);
+    const form = this.props.current_form;
+    const response = await getFormStructure(form.name, form.id);
     if (response === 'error') return;
     this.props.dispatch({type: 'UPDATE', structure: response.form_structure});
   }
@@ -28,7 +30,7 @@ class Form extends Component {
       <FormLayout>
         <FormTitle/>
         <hr/>
-        <FormStructure/>
+        <FormStructure structure={this.props.structure}/>
         <hr/>
       </FormLayout>
     );

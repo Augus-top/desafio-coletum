@@ -18,7 +18,6 @@ class FormStructure extends Component {
     e.preventDefault();
     
     this.setState({open: true});
-    console.log(this.state.open);
   };
 
   handleChange = (date) => {
@@ -26,42 +25,67 @@ class FormStructure extends Component {
     this.setState({open: false});
   };
 
-  render() {
+  createInputField = (field) => {
+    switch(field.type){
+      case 'datefield':
+        return (
+            <InputGroup>
+              <Form.Control type="date" placeholder="DD/MM/AAAA" />
+              <InputGroup.Append>
+                <InputGroup.Text id="inputGroupPrepend"><DateButton show={this.state.open} handleButton={this.handleClick} handleChange={this.handleChange}/></InputGroup.Text>
+              </InputGroup.Append>
+            </InputGroup>
+        );
+      case 'ratingfield':
+          return (
+            <StarRating/>
+          );
+      case 'urlfield':
+          return (
+            <Form.Control type="url"/>
+          );
+      default:
+          return(
+            <Form.Control type="text"/>
+          );
+    }
+  };
+
+  checkHelpBlock = (field) => {
+    if (field.helpBlock === null) {
+      return
+    }
+    return (
+      <small className='form-text text-muted'>
+        {field.helpBlock}
+      </small>
+    )
+  }
+
+  createFormFields = () => {
     return (
       <Form>
-      <Form.Group as={Row} controlId="formPlaintextPassword">
-        <StyledLabel className='text-right' column xs={labelDefaultSize}>
-          Password
-        </StyledLabel>
-        <Col xs={fieldDefaultSize}>
-          <Form.Control type="password" placeholder="Password" />
-          <small className='form-text text-muted'>
-            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-          </small>
-        </Col>
-      </Form.Group>
-      <Form.Group as={Row} controlId="formPlaintextDate">
-        <StyledLabel className='text-right' column xs={labelDefaultSize}>
-          Date
-        </StyledLabel>
-        <Col xs={fieldDefaultSize}>
-          <InputGroup>
-            <Form.Control type="text" placeholder="DD/MM/AAAA" />
-            <InputGroup.Append>
-              <InputGroup.Text id="inputGroupPrepend"><DateButton show={this.state.open} handleButton={this.handleClick} handleChange={this.handleChange}/></InputGroup.Text>
-            </InputGroup.Append>
-          </InputGroup>
-        </Col>
-      </Form.Group>
-      <Form.Group as={Row} controlId="formPlaintextStar">
-        <StyledLabel className='text-right' column xs={labelDefaultSize}>
-          Força
-        </StyledLabel>
-        <Col xs={fieldDefaultSize}>
-          <StarRating/>
-        </Col>
-      </Form.Group>
-    </Form>
+        {this.props.structure.map(field => {
+          return (
+            <Form.Group as={Row} controlId={field.componentId} key={field.componentId}>
+              <StyledLabel className='text-right' column xs={labelDefaultSize}>
+                {field.label}
+              </StyledLabel>
+              <Col xs={fieldDefaultSize}>
+                {this.createInputField(field)}
+                {this.checkHelpBlock(field)}
+              </Col>
+            </Form.Group>
+          );
+        })}
+      </Form>
+    );
+  };
+
+  render() {
+    if (this.props.structure.length === 0) return;
+    return (
+      this.createFormFields()
     );
   }
 }

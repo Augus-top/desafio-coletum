@@ -14,6 +14,7 @@ const initialState = {
 }
 
 const availableForms = (state = initialState, action) => {
+  // console.log(state);
   switch (action.type) {
     case 'SET_FORMS':
       return {

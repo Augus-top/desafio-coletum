@@ -5,8 +5,8 @@ import availableForms from './reducers/availableForms';
 
 const reducer = combineReducers({
   form: reduxFormReducer,
-  structure: structure,
-  forms: availableForms
+  structure,
+  availableForms
 });
 
 export default createStore(reducer);
