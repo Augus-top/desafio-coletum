@@ -11,7 +11,7 @@ const StyledLabel = styled(Form.Label)`
 const labelDefaultSize = 2;
 const fieldDefaultSize = 4; 
 
-class FormStructure extends React.Component {
+class FormStructure extends Component {
   state = { open: false };
 
   handleClick = (e) => {
@@ -35,6 +35,9 @@ class FormStructure extends React.Component {
         </StyledLabel>
         <Col xs={fieldDefaultSize}>
           <Form.Control type="password" placeholder="Password" />
+          <small className='form-text text-muted'>
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+          </small>
         </Col>
       </Form.Group>
       <Form.Group as={Row} controlId="formPlaintextDate">
@@ -55,7 +58,6 @@ class FormStructure extends React.Component {
           Força
         </StyledLabel>
         <Col xs={fieldDefaultSize}>
-          {/* <Form.Control type="password" placeholder="Password" /> */}
           <StarRating/>
         </Col>
       </Form.Group>
