@@ -25,6 +25,10 @@ const StyledNavbar = styled(Navbar)`
   .navbar-toggler {
     background-color: #52a096;
   }
+
+  @media (max-width: 425px) { 
+    background: white;
+  }
 `;
 
 const mapStateToProps = state => {
@@ -64,7 +68,7 @@ class Header extends Component {
 
   render() {
     return(
-    <StyledNavbar variant='dark' expand='md'>
+    <StyledNavbar variant='dark' expand='sm'>
       <StyledNavbar.Toggle aria-controls='basic-navbar-nav' />
       <StyledNavbar.Collapse>
         <Nav className="mr-auto">

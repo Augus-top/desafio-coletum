@@ -3,10 +3,26 @@ import styled from 'styled-components';
 import Container from 'react-bootstrap/Container';
 
 const StyledLayout = styled(Container)`
-  margin: 2em 8em 2em 8em;
-  padding: 1em;
-  border: 2px solid #DDD;
   background: white
+
+  @media (min-width: 576px) { 
+    margin: auto;
+    width: 50%;
+    padding: 1em;
+    border: 2px solid #DDD;
+  }
+
+  @media (max-width: 425px) { 
+    height: 100vh
+  }
+
+  @media (min-width: 576px) { 
+    margin: auto;
+    width: 50%;
+    padding: 1em;
+    border: 2px solid #DDD;
+  }
+
 `;
 
 const FormLayout = (props) => (

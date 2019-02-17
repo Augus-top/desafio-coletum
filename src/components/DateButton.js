@@ -25,6 +25,7 @@ const DateButton = (props) => {
         selected={new Date()} 
         open={props.show} 
         popperPlacement="auto"
+        locale="pt-BR"
         onChange={ props.handleChange }
       />
     </div>

@@ -5,11 +5,12 @@ import DateButton from './DateButton';
 import StarRating from './StarRating';
 
 const StyledLabel = styled(Form.Label)`
-  word-wrap: break-word
+  word-wrap: break-word;
 `;
 
-const labelDefaultSize = 2;
-const fieldDefaultSize = 4; 
+
+const labelDefaultSize = 4;
+const fieldDefaultSize = 6; 
 
 class FormStructure extends Component {
   state = { open: false };
@@ -68,7 +69,7 @@ class FormStructure extends Component {
         {this.props.structure.map(field => {
           return (
             <Form.Group as={Row} controlId={field.componentId} key={field.componentId}>
-              <StyledLabel className='text-right' column xs={labelDefaultSize}>
+              <StyledLabel className='text-right' column xs={labelDefaultSize + 1}  column sm={labelDefaultSize}>
                 {field.label}
               </StyledLabel>
               <Col xs={fieldDefaultSize}>

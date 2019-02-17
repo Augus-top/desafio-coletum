@@ -9,7 +9,11 @@ const StyledStar = styled(FontAwesomeIcon)`
 `
 
 const Layout = styled.div`
-  font-size: 1.5em;
+  font-size: 1.0em;
+  
+  @media (min-width: 1024px) { 
+    font-size: 1.5em;
+  }
 `;
 
 export default class StarRating extends React.Component {
