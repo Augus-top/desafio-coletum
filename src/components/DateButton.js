@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import DatePicker from "react-datepicker";
+import DatePicker, { registerLocale } from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -25,7 +25,6 @@ const DateButton = (props) => {
         selected={new Date()} 
         open={props.show} 
         popperPlacement="auto"
-        locale="pt-BR"
         onChange={ props.handleChange }
       />
     </div>

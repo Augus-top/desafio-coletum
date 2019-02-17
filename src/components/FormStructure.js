@@ -8,23 +8,10 @@ const StyledLabel = styled(Form.Label)`
   word-wrap: break-word;
 `;
 
-
 const labelDefaultSize = 4;
 const fieldDefaultSize = 6; 
 
 class FormStructure extends Component {
-  state = { open: false };
-
-  handleClick = (e) => {
-    e.preventDefault();
-    
-    this.setState({open: true});
-  };
-
-  handleChange = (date) => {
-    console.log(date);
-    this.setState({open: false});
-  };
 
   createInputField = (field) => {
     switch(field.type){
@@ -33,7 +20,13 @@ class FormStructure extends Component {
             <InputGroup>
               <Form.Control type="date" placeholder="DD/MM/AAAA" />
               <InputGroup.Append>
-                <InputGroup.Text id="inputGroupPrepend"><DateButton show={this.state.open} handleButton={this.handleClick} handleChange={this.handleChange}/></InputGroup.Text>
+                <InputGroup.Text id="inputGroupPrepend">
+                  <DateButton 
+                    show={this.props.calendarFlag} 
+                    handleButton={this.props.handleCalendarClick} 
+                    handleChange={this.props.handleCalendarChange}
+                  />
+                </InputGroup.Text>
               </InputGroup.Append>
             </InputGroup>
         );

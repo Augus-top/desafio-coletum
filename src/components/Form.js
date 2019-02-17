@@ -22,6 +22,16 @@ class Form extends Component {
     if (this.props.formStructure.updateFlag) this.updateStructure();
   };
 
+  handleCalendarClick = (e) => {
+    e.preventDefault();
+    this.props.dispatch({type: 'SET_CALENDAR_FLAG', calendarFlag: true});
+  };
+
+  handleCalendarChange = (date) => {
+    console.log(date);
+    this.props.dispatch({type: 'SET_CALENDAR_FLAG', calendarFlag: false});
+  };
+
   updateStructure = async () => {
     this.props.dispatch({type: 'SET_UPDATE_FLAG', updateFlag: false}); 
     const form = this.props.availableForms.currentForm;
@@ -35,7 +45,12 @@ class Form extends Component {
       <FormLayout>
         <FormTitle title={this.props.availableForms.currentForm.name}/>
         <hr/>
-        <FormStructure structure={this.props.formStructure.structure}/>
+        <FormStructure 
+          structure={this.props.formStructure.structure}
+          calendarFlag={this.props.formStructure.calendarFlag}
+          handleCalendarClick={this.handleCalendarClick}
+          handleCalendarChange={this.handleCalendarChange}
+        />
         <hr/>
       </FormLayout>
     );
