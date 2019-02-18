@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/desafio-coletum/static/css/2.f451a16b.chunk.css"
   },
   {
-    "revision": "b8153cd7e40c8f00f31304b7e8f39a75",
+    "revision": "4d14596fdace57bb7d9c510d65380c39",
     "url": "/desafio-coletum/index.html"
   }
 ];

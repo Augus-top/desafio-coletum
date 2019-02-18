@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/desafio-coletum/precache-manifest.05717a068065e5e6a952677d4e55c5fe.js"
+  "/desafio-coletum/precache-manifest.e4e5b070dbd94d843c5ce961978afebc.js"
 );
 
 workbox.clientsClaim();
