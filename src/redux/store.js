@@ -1,12 +1,12 @@
 import { createStore, combineReducers } from 'redux';
-import { reducer as reduxFormReducer } from 'redux-form';
 import structure from './reducers/structure';
 import availableForms from './reducers/availableForms';
+import formValues from './reducers/formValues';
 
 const reducer = combineReducers({
-  form: reduxFormReducer,
   formStructure: structure,
-  availableForms
+  availableForms,
+  formValues
 });
 
 export default createStore(reducer);

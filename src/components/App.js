@@ -5,7 +5,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { createGlobalStyle } from 'styled-components';
-import Form from './Form';
+import Form from './Form/Form';
 import Header from './Header';
 
 library.add(faCalendarAlt);

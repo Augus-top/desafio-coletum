@@ -6,7 +6,6 @@ const initialState = {
     helpBlock: null
   }],
   updateFlag: true,
-  starRating: 0
 }
 
 const structure = (state = initialState, action) => {
@@ -20,11 +19,6 @@ const structure = (state = initialState, action) => {
       return {
         ...state,
         updateFlag: action.updateFlag
-      }
-    case 'SET_STAR_RATING':
-      return {
-        ...state,
-        starRating: action.starRating
       }
     default: {
       return state;

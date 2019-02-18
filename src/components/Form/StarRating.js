@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,7 +18,7 @@ const Layout = styled.div`
 
 const mapStateToProps = state => {
   return {
-    rating: state.formStructure.starRating
+    rating: state.formValues.starRating
   }
 };
 

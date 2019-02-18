@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import FormTitle from './FormTitle';
 import FormLayout from './FormLayout';
 import FormStructure from './FormStructure';
-import { getFormStructure } from '../api/apiClient';
+import { getFormStructure } from '../../api/apiClient';
 
 const mapStateToProps = state => {
   return {
@@ -14,7 +14,6 @@ const mapStateToProps = state => {
 class Form extends Component {
 
   componentDidMount = () => {
-    // this.updateStructure();
     this.props.dispatch({type: 'SET_UPDATE_FLAG', updateFlag: true});
   };
 
@@ -28,6 +27,7 @@ class Form extends Component {
     if (response === 'error') return;
     this.props.dispatch({type: 'UPDATE', structure: response.form_structure}); 
     this.props.dispatch({type: 'SET_UPDATE_FLAG', updateFlag: false});
+    this.props.dispatch({type: 'RESET_FORM_VALUES'});
   }
 
   render() {

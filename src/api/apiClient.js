@@ -1,7 +1,7 @@
 const request = require('request-promise');
 
 const URL = 'https://coletum.com/api/graphql';
-const TOKEN = '7s5txcu909kwc48wookgw8g00occokk';
+const TOKEN = 'cizio7xeohwgc8k4g4koo008kkoocwg';
 
 const sendAPIRequest = async (apiPath) => {
   try {
