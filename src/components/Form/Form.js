@@ -28,6 +28,7 @@ class Form extends Component {
     this.props.dispatch({type: 'UPDATE', structure: response.form_structure}); 
     this.props.dispatch({type: 'SET_UPDATE_FLAG', updateFlag: false});
     this.props.dispatch({type: 'RESET_FORM_VALUES'});
+    this.props.dispatch({type: 'RESET_STAR_RATING'});
   }
 
   render() {

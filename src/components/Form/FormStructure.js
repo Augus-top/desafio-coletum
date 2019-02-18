@@ -39,7 +39,7 @@ class FormStructure extends Component {
         );
       case 'ratingfield':
           return (
-            <StarRating name={field.componentId}/>
+            <StarRating name={field.componentId} />
           );
       case 'urlfield':
           return (

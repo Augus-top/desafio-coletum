@@ -1,6 +1,6 @@
 const initialState = {
   formValues: {},
-  starRating: 0
+  starRating: {}
 }
 
 const formValues = (state = initialState, action) => {
@@ -21,7 +21,15 @@ const formValues = (state = initialState, action) => {
     case 'SET_STAR_RATING':
       return {
         ...state,
-        starRating: action.starRating
+        starRating: {
+          ...state.starRating,
+          [action.fieldName]: action.rating
+        }
+      }
+    case 'RESET_STAR_RATING':
+      return {
+        ...state,
+        starRating: {}
       }
     default: {
       return state;

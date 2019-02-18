@@ -18,23 +18,28 @@ const Layout = styled.div`
 
 const mapStateToProps = state => {
   return {
-    rating: state.formValues.starRating
+    starRating: state.formValues.starRating
   }
 };
 
 class StarRating extends React.Component {
 
-  handleStarClick(nextValue, prevValue, name) {
-    this.props.dispatch({type: 'SET_STAR_RATING', starRating: nextValue});
+  componentDidMount = () => {
+    this.props.dispatch({type: 'SET_STAR_RATING', fieldName: this.props.name, rating: 0 });
+  };
+
+  handleStarClick = (nextValue, prevValue, name) => {
+    this.props.dispatch({type: 'SET_STAR_RATING', fieldName: this.props.name, rating: nextValue});
   }
 
-  render() {    
-    return (                
+  render() {
+    // console.log(this.props.starRating[this.props.name]);
+    return (
       <Layout>
         <StarRatingComponent 
-          name="starRating" 
+          name={this.props.name} 
           starCount={5}
-          value={this.props.rating}
+          value={this.props.starRating[this.props.name]}
           onStarClick={this.handleStarClick.bind(this)}
           renderStarIcon={() => <StyledStar icon="star"/>}
           emptyStarColor={'#9b9da0'}
